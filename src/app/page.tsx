@@ -1,27 +1,28 @@
 "use client";
 
-/* agent-notes: { ctx: "Main application page assembling Cheral components, language state, and Donate modal", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/DestinationExplorer.tsx, src/components/ItineraryModal.tsx, src/components/TrustMetrics.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-07-26" } */
+/* agent-notes: { ctx: "Main application page assembling 100% verbatim Cheral Trust sections extracted from brochure (Hero, AboutSection, 4 Initiatives, 10 Core Values, 3 Objectives, GallerySection, Bank/UPI Modal)", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/AboutSection.tsx, src/components/InitiativesSection.tsx, src/components/CoreValuesSection.tsx, src/components/ObjectivesSection.tsx, src/components/GallerySection.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-08-13" } */
+
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import DestinationExplorer from "@/components/DestinationExplorer";
-import ItineraryModal from "@/components/ItineraryModal";
-import TrustMetrics from "@/components/TrustMetrics";
+import AboutSection from "@/components/AboutSection";
+import InitiativesSection from "@/components/InitiativesSection";
+import CoreValuesSection from "@/components/CoreValuesSection";
+import ObjectivesSection from "@/components/ObjectivesSection";
+
 import Footer from "@/components/Footer";
 import DonateModal from "@/components/DonateModal";
-import { Destination } from "@/data/destinations";
 
 export default function Home() {
   const [currentLang, setCurrentLang] = useState<"en" | "ta">("en");
-  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
   const [donateModalOpen, setDonateModalOpen] = useState<boolean>(false);
 
   const handleToggleLang = (lang: "en" | "ta") => {
     setCurrentLang(lang);
   };
 
-  const handleScrollToDestinations = () => {
-    const el = document.getElementById("destinations");
+  const handleScrollToAbout = () => {
+    const el = document.getElementById("about");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -29,25 +30,34 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F7F3EF]">
-      {/* Header with Larger Bilingual Logo & Donate CTA */}
+      {/* Header */}
       <Header
         currentLang={currentLang}
         onToggleLang={handleToggleLang}
         onOpenDonate={() => setDonateModalOpen(true)}
       />
 
-      {/* Hero Section */}
+      {/* Main Content Sections */}
       <main className="flex-grow">
-        <Hero currentLang={currentLang} onExploreClick={handleScrollToDestinations} />
+        {/* Full Screen Animated Hero Slideshow */}
+        <Hero currentLang={currentLang} onExploreClick={handleScrollToAbout} />
 
-        {/* Destination Explorer & Trust Scores */}
-        <DestinationExplorer
+        {/* Verbatim About Us, Mission & Vision Section */}
+        <AboutSection currentLang={currentLang} />
+
+        {/* 4 Core Initiatives Section (What We Do) */}
+        <InitiativesSection
           currentLang={currentLang}
-          onSelectDestination={(dest) => setSelectedDestination(dest)}
+          onSelectInitiative={() => setDonateModalOpen(true)}
         />
 
-        {/* Trust Metrics & Ratings */}
-        <TrustMetrics currentLang={currentLang} />
+        {/* 10 Core Values Section */}
+        <CoreValuesSection currentLang={currentLang} />
+
+        {/* 3 Key Objectives Section */}
+        <ObjectivesSection currentLang={currentLang} />
+
+
       </main>
 
       {/* Footer */}
@@ -56,14 +66,7 @@ export default function Home() {
         onOpenDonate={() => setDonateModalOpen(true)}
       />
 
-      {/* Interactive Heritage Itinerary Modal */}
-      <ItineraryModal
-        destination={selectedDestination}
-        currentLang={currentLang}
-        onClose={() => setSelectedDestination(null)}
-      />
-
-      {/* Cultural Heritage Preservation Donate Modal */}
+      {/* Official Cheral Trust Bank & UPI Modal */}
       <DonateModal
         isOpen={donateModalOpen}
         currentLang={currentLang}

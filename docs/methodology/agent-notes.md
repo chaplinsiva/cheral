@@ -4,7 +4,7 @@ agent-notes: { ctx: "agent-notes format spec for all file types", deps: [AGENTS.
 
 # Agent-Notes Protocol
 
-Agent-notes are compressed, structured metadata at the top of every file (except pure JSON) that bootstrap Claude's context without requiring a full file read. They are **not meant for human consumption** — they are dense key-value annotations optimized for agent context loading.
+Agent-notes are compressed, structured metadata at the top of every file (except pure JSON) that bootstrap Antigravity's context without requiring a full file read. They are **not meant for human consumption** — they are dense key-value annotations optimized for agent context loading.
 
 ## Why
 
@@ -132,7 +132,7 @@ maxTurns: 25
 <!-- agent-notes: { ctx: "principal SDE, TDD green phase", deps: [docs/methodology/personas.md, docs/methodology/phases.md], state: canonical, last: "archie@2026-02-12" } -->
 ```
 
-### Command files (.agents/commands/*.md)
+### Skill files (.agents/skills/*/SKILL.md)
 
 HTML comment at the top of the file (before the first line of content):
 

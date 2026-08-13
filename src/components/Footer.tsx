@@ -1,8 +1,10 @@
 "use client";
 
-/* agent-notes: { ctx: "Footer component with clean raw emblem logo before main bilingual logo", deps: [public/logos], state: active, last: "sato@2026-07-26" } */
+/* agent-notes: { ctx: "Footer component displaying clean original logo colors without white invert filter, Madurai contact, and secondary color #a62a14", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-08-13" } */
+
 import Image from "next/image";
 import Link from "next/link";
+import { cheralBankDetails } from "@/data/cheralData";
 
 interface FooterProps {
   currentLang: "en" | "ta";
@@ -11,95 +13,98 @@ interface FooterProps {
 
 export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
   return (
-    <footer className="bg-[#222222] text-[#F7F3EF] py-16 border-t border-[#D9D9D9]/20">
+    <footer className="bg-[#2D0A0E] text-[#F7F3EF] py-16 border-t border-[#a62a14]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#6F6F6F]/40">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
           
-          {/* Brand Info with Clean Emblem + Main Logo */}
+          {/* Brand Info with Clean Original Logo Colors */}
           <div className="md:col-span-5 space-y-5">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              {/* Raw Emblem Logo (No round circle container) */}
-              <div className="relative h-12 w-auto md:h-16 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <Link href="/" className="inline-flex items-center gap-1.5 sm:gap-2 group bg-[#F7F3EF] p-2.5 rounded-2xl border border-white/20">
+              {/* Emblem Logo in Clean Original Color */}
+              <div className="relative h-10 w-auto md:h-12 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/logos/Final Cheral logo copy.png"
                   alt="Cheral Logo Emblem"
-                  width={70}
-                  height={70}
-                  className="object-contain max-h-12 md:max-h-16 w-auto brightness-0 invert"
+                  width={60}
+                  height={60}
+                  className="object-contain max-h-10 md:max-h-12 w-auto"
                 />
               </div>
 
-              {/* Main Logo */}
+              {/* Main Brand Logo in Clean Original Color */}
               {currentLang === "ta" ? (
                 <Image
                   src="/logos/Final Cheral logo transparent.png"
                   alt="Cheral Tamil Logo"
-                  width={200}
-                  height={65}
-                  className="object-contain max-h-14 md:max-h-16 w-auto brightness-0 invert"
+                  width={180}
+                  height={55}
+                  className="object-contain max-h-11 md:max-h-14 w-auto"
                 />
               ) : (
                 <Image
                   src="/logos/Cheral eng logo copy.png"
                   alt="Cheral English Logo"
-                  width={200}
-                  height={65}
-                  className="object-contain max-h-14 md:max-h-16 w-auto brightness-0 invert"
+                  width={180}
+                  height={55}
+                  className="object-contain max-h-11 md:max-h-14 w-auto"
                 />
               )}
             </Link>
-            <p className="text-xs text-[#D9D9D9] max-w-sm leading-relaxed">
+
+            <p className="text-xs text-[#E8D9CC]/90 max-w-sm leading-relaxed font-sans">
               {currentLang === "ta"
-                ? "சேரல் வரலாற்று அறக்கட்டளை — பண்டைய தெற்காசிய வரலாற்று பொக்கிஷங்கள் மற்றும் தொல்பொருள் தகவல்களின் பிரீமியம் காப்பகம்."
-                : "Cheral is a Traveling Historical Trust committed to authentic heritage documentation, epigraphy verification, and sustainable cultural tourism."}
+                ? "சேரல் அமைப்பு (CHERAL) என்பது ஆராய்ச்சி, கல்வி, ஆவணப்படுத்தல் மற்றும் சமூக பங்கேற்பு மூலம் இயற்கை சுற்றுச்சூழல், பல்லுயிர்ப் பெருக்கம் மற்றும் பண்பாட்டு பாரம்பரியத்தைப் பாதுகாக்கும் தொண்டு நிறுவனமாகும்."
+                : "CHERAL (Centre for Heritage and Ecological Research through Arts and Literature) is a non-profit organization committed to conserving natural ecosystems, biodiversity, and cultural heritage."}
             </p>
+
             <button
               onClick={onOpenDonate}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F68B5F] hover:bg-[#E26E4D] text-white text-xs font-bold shadow transition-all"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#a62a14] hover:bg-white hover:text-[#4A0E17] text-white text-xs font-bold shadow-md transition-all"
             >
               <span>♥</span>
-              <span>{currentLang === "ta" ? "அறக்கட்டளைக்கு நன்கொடை" : "Donate to Heritage Trust"}</span>
+              <span>{currentLang === "ta" ? "அறக்கட்டளைக்கு நன்கொடை" : "Donate to Cheral Trust"}</span>
             </button>
           </div>
 
-          {/* Quick Links */}
+          {/* Core Initiatives Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#F68B5F]">
-              {currentLang === "ta" ? "பகுதிகள்" : "Explore Eras"}
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#a62a14]">
+              {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
             </h4>
-            <ul className="space-y-2 text-xs text-[#D9D9D9]">
-              <li><a href="#destinations" className="hover:text-[#F68B5F] transition-colors">Chera Maritime Ports</a></li>
-              <li><a href="#destinations" className="hover:text-[#F68B5F] transition-colors">Chola Temple Architecture</a></li>
-              <li><a href="#destinations" className="hover:text-[#F68B5F] transition-colors">Pandya Sangam Sites</a></li>
-              <li><a href="#destinations" className="hover:text-[#F68B5F] transition-colors">Coastal Sea Fortresses</a></li>
+            <ul className="space-y-2 text-xs text-[#E8D9CC]/80">
+              <li><a href="#what-we-do" className="hover:text-white transition-colors">Public Awareness Campaigns</a></li>
+              <li><a href="#what-we-do" className="hover:text-white transition-colors">Student Education Programs</a></li>
+              <li><a href="#what-we-do" className="hover:text-white transition-colors">Nature & Heritage Walks</a></li>
+              <li><a href="#what-we-do" className="hover:text-white transition-colors">Native Tree Plantation</a></li>
+              <li><a href="#core-values" className="hover:text-white transition-colors">10 Core Values</a></li>
             </ul>
           </div>
 
-          {/* Trust Principles */}
+          {/* Official Contact Info & Address */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#F68B5F]">
-              {currentLang === "ta" ? "அறக்கட்டளை கொள்கை" : "Trust Principles"}
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#a62a14]">
+              {currentLang === "ta" ? "தொடர்பு விவரங்கள்" : "Official Contact Info"}
             </h4>
-            <p className="text-xs text-[#D9D9D9] leading-relaxed">
-              {currentLang === "ta"
-                ? "எங்கள் அமைப்பின் 100% பங்களிப்புகள் கல்வெட்டுகள் பாதுகாப்பு மற்றும் தொல்லியல் ஆராய்ச்சிக்கு பயன்படுத்தப்படுகின்றன."
-                : "100% of our preservation funds directly support Tamil-Brahmi stone inscription documentation and monument restoration."}
-            </p>
-            <div className="pt-2 flex items-center gap-2 text-[11px] text-[#F8D7C6]">
-              <span>🛡️ {currentLang === "ta" ? "சான்றளிக்கப்பட்ட பாதுகாப்பு" : "Certified Cultural Non-Profit"}</span>
+            <div className="text-xs text-[#E8D9CC]/90 leading-relaxed space-y-2 font-sans">
+              <p className="font-bold text-white">{cheralBankDetails.organizationName}</p>
+              <p>{cheralBankDetails.address}</p>
+              <p><span className="text-[#a62a14]">Cell: </span>{cheralBankDetails.cell}</p>
+              <p><span className="text-[#a62a14]">Mail: </span>{cheralBankDetails.email}</p>
+            </div>
+            <div className="pt-2 flex items-center gap-2 text-[11px] text-[#E8D9CC]">
+              <span>🛡️ Registered Non-Profit Cultural & Ecological Trust</span>
             </div>
           </div>
 
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6F6F6F] gap-4">
-          <p>© {new Date().getFullYear()} Cheral Traveling Historical Trust. All rights reserved.</p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8D9CC]/60 gap-4">
+          <p>© {new Date().getFullYear()} Cheral Trust (Centre for Heritage and Ecological Research). All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-[#F68B5F] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#F68B5F] transition-colors">Trust Guidelines</a>
-            <button onClick={onOpenDonate} className="text-[#F68B5F] hover:underline font-semibold">
-              Donate
+            <a href="#core-values" className="hover:text-white transition-colors">Core Values</a>
+            <button onClick={onOpenDonate} className="text-[#a62a14] hover:underline font-semibold">
+              Donate (Bank / UPI)
             </button>
           </div>
         </div>

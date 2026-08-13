@@ -1,4 +1,4 @@
-/* agent-notes: { ctx: "Cheral warm travel CSS design tokens and theme variables", deps: [], state: active, last: "sato@2026-07-26" } */
+/* agent-notes: { ctx: "Cheral design system CSS tokens featuring primary burgundy (#4A0E17) and secondary rust red (#a62a14)", deps: [], state: active, last: "sato@2026-08-13" } */
 @import "tailwindcss";
 
 :root {
@@ -7,21 +7,20 @@
   --text-headline: #222222;
   --text-body: #6F6F6F;
   --border-color: #D9D9D9;
-  --shape-peach: #F8D7C6;
-  --accent-coral: #F68B5F;
-  --hover-terracotta: #E26E4D;
+  --color-primary: #4A0E17;
+  --color-secondary: #a62a14;
   --bg-beige: #E8D9CC;
 }
 
 @theme {
+  --color-cheral-burgundy: #4A0E17;
+  --color-cheral-dark: #2D0A0E;
+  --color-cheral-secondary: #a62a14;
   --color-warm-bg: #F7F3EF;
   --color-warm-card: #FFFFFF;
   --color-charcoal: #222222;
   --color-medium-gray: #6F6F6F;
   --color-light-gray: #D9D9D9;
-  --color-warm-peach: #F8D7C6;
-  --color-coral: #F68B5F;
-  --color-terracotta: #E26E4D;
   --color-sand-beige: #E8D9CC;
 }
 

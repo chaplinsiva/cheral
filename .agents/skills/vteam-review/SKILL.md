@@ -1,5 +1,5 @@
 ---
-name: review
+name: vteam-review
 description: Run a guided review session for completed work.
 ---
 

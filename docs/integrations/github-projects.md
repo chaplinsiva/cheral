@@ -1,5 +1,5 @@
+agent-notes: { ctx: "GitHub Projects v2 board adapter with gh CLI recipes", deps: [AGENTS.md, .agents/agents/grace.md, .agents/skills/kickoff/SKILL.md], state: canonical, last: "sato@2026-02-21", key: ["definitive gh CLI reference for board ops", "5 statuses required via GraphQL mutation", "per-item transitions only -- never batch"] }
 ---
-agent-notes: { ctx: "GitHub Projects v2 board adapter with gh CLI recipes", deps: [AGENTS.md, .agents/agents/grace.md, .agents/commands/kickoff.md], state: canonical, last: "sato@2026-02-21", key: ["definitive gh CLI reference for board ops", "5 statuses required via GraphQL mutation", "per-item transitions only -- never batch"] }
 ---
 
 # GitHub Projects v2 Adapter

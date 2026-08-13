@@ -1,5 +1,5 @@
 ---
-name: resume
+name: vteam-resume
 description: Resume from a previous session's handoff.
 ---
 

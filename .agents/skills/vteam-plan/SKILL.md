@@ -1,5 +1,5 @@
 ---
-name: plan
+name: vteam-plan
 description: I need to plan the implementation of
 ---
 
@@ -19,7 +19,7 @@ Before writing the plan, scan the work items for architectural decisions:
 
 ## Plan Document
 
-Create or update a plan document in `docs/plans/`. The plan should include:
+Create an implementation plan artifact using Antigravity's Planning Mode. Use the `write_to_file` tool to create `implementation_plan.md` in the `<appDataDir>/brain/<conversation-id>/` directory with `ArtifactMetadata` (set `UserFacing: true` and `RequestFeedback: true`). The plan should include:
 
 1. **Goal** — What we're trying to achieve and why.
 2. **Constraints** — Any relevant ADRs, conventions, or technical limitations.
@@ -31,9 +31,9 @@ Create or update a plan document in `docs/plans/`. The plan should include:
 
 Check existing ADRs and plans for context before writing. Add agent-notes frontmatter per `docs/methodology/agent-notes.md`.
 
-## Tracking Artifact
+## Tracking Artifact (task.md)
 
-After the plan document is written, produce `docs/tracking/YYYY-MM-DD-<topic>-plan.md` summarizing the plan's goals, approach, key constraints, and acceptance criteria. Use the standard tracking format from `docs/process/tracking-protocol.md`. Set **Prior Phase** to the most recent tracking artifact for this topic (if any), or "None" if this is a standalone plan.
+After the implementation plan is created, create a `task.md` artifact in the same `<appDataDir>/brain/<conversation-id>/` directory. Break down the work from the plan into component-level items and track progress as a living checklist (`[ ]`, `[/]`, `[x]`). Do not drop files into `docs/tracking/` manually—use the native Antigravity tasks.
 
 ## Development Environment Check
 
