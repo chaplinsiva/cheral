@@ -1,14 +1,14 @@
 "use client";
 
-/* agent-notes: { ctx: "Main application page assembling 100% verbatim Cheral Trust sections extracted from brochure (Hero, AboutSection, 4 Initiatives, 10 Core Values, 3 Objectives, GallerySection, Bank/UPI Modal)", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/AboutSection.tsx, src/components/InitiativesSection.tsx, src/components/CoreValuesSection.tsx, src/components/ObjectivesSection.tsx, src/components/GallerySection.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-08-13" } */
+/* agent-notes: { ctx: "Main application page assembling Cheral Trust sections (Hero, About, Initiatives with Bird Watching, Objectives, CoreValues, Bank Modal)", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/AboutSection.tsx, src/components/InitiativesSection.tsx, src/components/ObjectivesSection.tsx, src/components/CoreValuesSection.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-08-25" } */
 
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import InitiativesSection from "@/components/InitiativesSection";
-import CoreValuesSection from "@/components/CoreValuesSection";
 import ObjectivesSection from "@/components/ObjectivesSection";
+import CoreValuesSection from "@/components/CoreValuesSection";
 
 import Footer from "@/components/Footer";
 import DonateModal from "@/components/DonateModal";
@@ -45,19 +45,17 @@ export default function Home() {
         {/* Verbatim About Us, Mission & Vision Section */}
         <AboutSection currentLang={currentLang} />
 
-        {/* 4 Core Initiatives Section (What We Do) */}
+        {/* Core Initiatives Section (What We Do) */}
         <InitiativesSection
           currentLang={currentLang}
           onSelectInitiative={() => setDonateModalOpen(true)}
         />
 
-        {/* 10 Core Values Section */}
-        <CoreValuesSection currentLang={currentLang} />
-
         {/* 3 Key Objectives Section */}
         <ObjectivesSection currentLang={currentLang} />
 
-
+        {/* 10 Core Values Section (placed after Objectives) */}
+        <CoreValuesSection currentLang={currentLang} />
       </main>
 
       {/* Footer */}

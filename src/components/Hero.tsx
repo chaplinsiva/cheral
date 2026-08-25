@@ -53,7 +53,7 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
             alt={slide.title[currentLang]}
             fill
             priority={idx === 0}
-            className="object-cover object-center scale-105 animate-pulse transition-transform duration-10000 ease-linear"
+            className="object-cover object-center scale-105 transition-transform duration-10000 ease-linear"
           />
           {/* Deep Cinematic Overlay Filter */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0E] via-[#2D0A0E]/70 to-[#2D0A0E]/40" />
@@ -66,7 +66,7 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
         {/* Top Pill Badge */}
         <div className="pt-4">
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#FFFFFF]/15 border border-white/25 backdrop-blur-md text-xs font-semibold text-[#F7F3EF] shadow-lg">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#a62a14] animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#a62a14]" />
             {currentLang === "ta"
               ? "சேரல் அறக்கட்டளை - மதசார்பற்ற தொண்டு நிறுவனம்"
               : "Cheral Trust • Centre for Heritage & Ecological Research"}
@@ -76,7 +76,9 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
         {/* Center Main Headline & Narrative */}
         <div className="max-w-4xl space-y-6 my-auto">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#a62a14] text-white text-xs font-mono font-bold tracking-widest uppercase shadow-md">
-            {activeSlideData.tag}
+            {typeof activeSlideData.tag === "object"
+              ? activeSlideData.tag[currentLang]
+              : activeSlideData.tag}
           </span>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.12] drop-shadow-md">
@@ -91,7 +93,7 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <button
               onClick={onExploreClick}
-              className="px-8 py-4 rounded-full bg-[#a62a14] text-white text-xs sm:text-sm font-bold shadow-xl hover:bg-white hover:text-[#4A0E17] transition-all duration-300 active:scale-95 flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-[#a62a14] text-white text-xs sm:text-sm font-bold shadow-xl hover:bg-white hover:text-[#4A0E17] transition-all duration-300 active:scale-95 flex items-center gap-2 cursor-pointer"
             >
               <span>{currentLang === "ta" ? "செயல்பாடுகளைக் காண்க" : "Explore What We Do"}</span>
               <span className="text-lg">↓</span>
@@ -105,38 +107,21 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
           </div>
         </div>
 
-        {/* Bottom Bar: Quick Metrics, Slide Dots, and Progress Bar */}
-        <div className="pb-6 pt-8 border-t border-white/15 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-          
-          {/* Quick Metrics */}
-          <div className="sm:col-span-8 grid grid-cols-3 gap-4 max-w-md">
-            <div>
-              <p className="text-2xl font-serif font-bold text-white">4</p>
-              <p className="text-[11px] text-[#E8D9CC]/80">
-                {currentLang === "ta" ? "முதன்மைத் திட்டங்கள்" : "Core Initiatives"}
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-serif font-bold text-white">10</p>
-              <p className="text-[11px] text-[#E8D9CC]/80">
-                {currentLang === "ta" ? "கொள்கைகள்" : "Core Values"}
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-serif font-bold text-[#a62a14]">100%</p>
-              <p className="text-[11px] text-[#E8D9CC]/80">
-                {currentLang === "ta" ? "தொண்டு நிறுவனம்" : "Non-Profit Trust"}
-              </p>
-            </div>
-          </div>
+        {/* Bottom Bar: Slide Dots and Subtitle */}
+        <div className="pb-6 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-[#E8D9CC]/80 font-sans tracking-wide">
+            {currentLang === "ta"
+              ? "இயற்கை பாதுகாப்பு • வரலாற்று ஆவணப்படுத்தல் • சமூக களப்பணிகள்"
+              : "Ecological Research • Heritage Conservation • Community Action"}
+          </p>
 
           {/* Slide Indicator Dots */}
-          <div className="sm:col-span-4 flex items-center justify-start sm:justify-end gap-3">
+          <div className="flex items-center gap-2.5">
             {cheralHeroSlides.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   idx === currentSlide
                     ? "w-8 bg-[#a62a14]"
                     : "w-2.5 bg-white/40 hover:bg-white/80"
@@ -145,7 +130,6 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
               />
             ))}
           </div>
-
         </div>
 
       </div>

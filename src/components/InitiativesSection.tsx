@@ -25,7 +25,7 @@ export default function InitiativesSection({
       sectionBadge: "எங்களது முதன்மைத் திட்டங்கள்",
       mainTitle: "எங்களது செயல்பாடுகள்",
       subtitle:
-        "இயற்கை, பல்லுயிர்ப் பெருக்கம் மற்றும் வரலாற்றுச் சின்னங்களை பாதுகாக்கும் எங்களது 4 முக்கிய திட்டங்கள்.",
+        "இயற்கை, பல்லுயிர்ப் பெருக்கம், பறவைகள் மற்றும் வரலாற்றுச் சின்னங்களைப் பாதுகாக்கும் எங்களது முதன்மைத் திட்டங்கள்.",
       viewDetails: "மேலும் அறிய & பங்கேற்க",
     },
   };
@@ -48,8 +48,8 @@ export default function InitiativesSection({
           </p>
         </div>
 
-        {/* 4 Core Initiatives Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Initiatives Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cheralInitiatives.map((item) => (
             <div
               key={item.id}

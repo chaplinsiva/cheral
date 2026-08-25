@@ -82,17 +82,6 @@ export default function AboutSection({ currentLang }: AboutSectionProps) {
           </div>
         </div>
 
-        {/* Guiding Philosophy Quote Banner */}
-        <div className="bg-[#F7F3EF] p-8 sm:p-12 rounded-3xl border border-[#a62a14]/30 text-center max-w-4xl mx-auto shadow-sm">
-          <span className="text-4xl text-[#a62a14] font-serif block mb-2">“</span>
-          <p className="text-base sm:text-lg font-serif italic text-[#4A0E17] leading-relaxed">
-            {ab.guidedByQuote}
-          </p>
-          <span className="text-xs font-bold font-mono text-[#a62a14] tracking-widest uppercase block mt-4">
-            — CHERAL TRUST GUIDING PHILOSOPHY
-          </span>
-        </div>
-
       </div>
     </section>
   );

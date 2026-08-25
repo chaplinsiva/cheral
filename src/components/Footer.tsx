@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "Footer component displaying clean original logo colors without white invert filter, Madurai contact, and secondary color #a62a14", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-08-13" } */
+/* agent-notes: { ctx: "Footer component displaying clean original logo colors without white invert filter, Madurai contact, and secondary color #a62a14", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-08-25" } */
 
 import Image from "next/image";
 import Link from "next/link";
@@ -25,9 +25,10 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
                 <Image
                   src="/logos/Final Cheral logo copy.png"
                   alt="Cheral Logo Emblem"
-                  width={60}
-                  height={60}
+                  width={511}
+                  height={589}
                   className="object-contain max-h-10 md:max-h-12 w-auto"
+                  unoptimized
                 />
               </div>
 
@@ -36,17 +37,19 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
                 <Image
                   src="/logos/Final Cheral logo transparent.png"
                   alt="Cheral Tamil Logo"
-                  width={180}
-                  height={55}
+                  width={779}
+                  height={512}
                   className="object-contain max-h-11 md:max-h-14 w-auto"
+                  unoptimized
                 />
               ) : (
                 <Image
                   src="/logos/Cheral eng logo copy.png"
                   alt="Cheral English Logo"
-                  width={180}
-                  height={55}
+                  width={857}
+                  height={397}
                   className="object-contain max-h-11 md:max-h-14 w-auto"
+                  unoptimized
                 />
               )}
             </Link>

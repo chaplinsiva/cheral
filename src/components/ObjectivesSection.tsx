@@ -61,9 +61,8 @@ export default function ObjectivesSection({ currentLang }: ObjectivesSectionProp
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-[#D9D9D9]/40 flex items-center justify-between text-xs text-[#a62a14] font-semibold">
+              <div className="mt-8 pt-4 border-t border-[#D9D9D9]/40 flex items-center text-xs text-[#a62a14] font-semibold">
                 <span>CHERAL OBJECTIVE #{obj.number}</span>
-                <span>→</span>
               </div>
             </div>
           ))}

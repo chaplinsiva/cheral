@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "Clean Header with logo emblem and text logo, simple Donate button, and no non-profit badge", deps: [public/logos], state: active, last: "sato@2026-08-13" } */
+/* agent-notes: { ctx: "Clean Header with logo emblem and text logo, simple Donate button, and no non-profit badge", deps: [public/logos], state: active, last: "sato@2026-08-25" } */
 
 import { useState } from "react";
 import Image from "next/image";
@@ -25,10 +25,11 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             <Image
               src="/logos/Final Cheral logo copy.png"
               alt="Cheral Logo Emblem"
-              width={65}
-              height={65}
+              width={511}
+              height={589}
               className="object-contain max-h-11 md:max-h-14 w-auto"
               priority
+              unoptimized
             />
           </div>
 
@@ -37,37 +38,50 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
               <Image
                 src="/logos/Final Cheral logo transparent.png"
                 alt="Cheral Tamil Logo"
-                width={190}
-                height={60}
+                width={779}
+                height={512}
                 className="object-contain max-h-12 md:max-h-16 w-auto"
                 priority
+                unoptimized
               />
             ) : (
               <Image
                 src="/logos/Cheral eng logo copy.png"
                 alt="Cheral English Logo"
-                width={190}
-                height={60}
+                width={857}
+                height={397}
                 className="object-contain max-h-12 md:max-h-16 w-auto"
                 priority
+                unoptimized
               />
             )}
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-8 text-xs sm:text-sm font-bold text-[#222222]">
+        <nav className="hidden lg:flex items-center space-x-7 text-xs sm:text-sm font-bold text-[#222222]">
           <a href="#about" className="hover:text-[#a62a14] transition-colors">
             {currentLang === "ta" ? "எங்களைப் பற்றி" : "About Us"}
           </a>
           <a href="#what-we-do" className="hover:text-[#a62a14] transition-colors">
             {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
           </a>
+          <a href="#objectives" className="hover:text-[#a62a14] transition-colors">
+            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
+          </a>
           <a href="#core-values" className="hover:text-[#a62a14] transition-colors">
             {currentLang === "ta" ? "10 கொள்கைகள்" : "10 Core Values"}
           </a>
-          <a href="#objectives" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
+          <a
+            href="https://cheraltrust.blogspot.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#a62a14] transition-colors inline-flex items-center gap-1"
+          >
+            <span>{currentLang === "ta" ? "வலைப்பதிவு" : "Blogs"}</span>
+            <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
           </a>
         </nav>
 
@@ -140,6 +154,13 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
           </a>
           <a
+            href="#objectives"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
+          >
+            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
+          </a>
+          <a
             href="#core-values"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
@@ -147,11 +168,16 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             {currentLang === "ta" ? "10 கொள்கைகள்" : "10 Core Values"}
           </a>
           <a
-            href="#objectives"
+            href="https://cheraltrust.blogspot.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
+            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14] flex items-center justify-between"
           >
-            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
+            <span>{currentLang === "ta" ? "வலைப்பதிவு (Blogs)" : "Blogs"}</span>
+            <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
           </a>
           <button
             onClick={() => {
