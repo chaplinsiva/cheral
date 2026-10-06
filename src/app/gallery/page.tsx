@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "Dynamic magazine-style large photo collage mosaic with responsive tile spans and immersive lightbox", deps: [src/components/Header.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx, src/data/cheralData.ts], state: active, last: "sato@2026-08-30" } */
+/* agent-notes: { ctx: "English-only photo collage mosaic with responsive tile spans and immersive lightbox", deps: [src/components/Header.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx, src/data/cheralData.ts], state: active, last: "sato@2026-10-06" } */
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -11,13 +11,8 @@ import DonateModal from "@/components/DonateModal";
 import { cheralGalleryItems, GalleryItem } from "@/data/cheralData";
 
 export default function GalleryPage() {
-  const [currentLang, setCurrentLang] = useState<"en" | "ta">("en");
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
   const [donateModalOpen, setDonateModalOpen] = useState<boolean>(false);
-
-  const handleToggleLang = (lang: "en" | "ta") => {
-    setCurrentLang(lang);
-  };
 
   // Lightbox Navigation Handlers
   const handlePrev = useCallback(() => {
@@ -53,21 +48,12 @@ export default function GalleryPage() {
   }, [activeItem, handlePrev, handleNext]);
 
   const t = {
-    en: {
-      breadcrumbHome: "Home",
-      breadcrumbGallery: "Gallery",
-      badge: "VISUAL ARCHIVES",
-      mainTitle: "Cheral Photo Collage",
-      photoCount: `${cheralGalleryItems.length} Photographs`,
-    },
-    ta: {
-      breadcrumbHome: "முகப்பு",
-      breadcrumbGallery: "காட்சியகம்",
-      badge: "களப் புகைப்படங்கள்",
-      mainTitle: "சேரல் புகைப்படத் தொகுப்பு",
-      photoCount: `${cheralGalleryItems.length} படங்கள்`,
-    },
-  }[currentLang];
+    breadcrumbHome: "Home",
+    breadcrumbGallery: "Gallery",
+    badge: "VISUAL ARCHIVES",
+    mainTitle: "Cheral Photo Collage",
+    photoCount: `${cheralGalleryItems.length} Photographs`,
+  };
 
   // Dynamic mosaic pattern spans for large, dramatic collage layout
   const getCollageSpanClass = (index: number) => {
@@ -106,8 +92,6 @@ export default function GalleryPage() {
     <div className="min-h-screen flex flex-col bg-[#F7F3EF]">
       {/* Header */}
       <Header
-        currentLang={currentLang}
-        onToggleLang={handleToggleLang}
         onOpenDonate={() => setDonateModalOpen(true)}
       />
 
@@ -256,14 +240,13 @@ export default function GalleryPage() {
 
       {/* Footer */}
       <Footer
-        currentLang={currentLang}
         onOpenDonate={() => setDonateModalOpen(true)}
       />
 
       {/* Donate Modal */}
       <DonateModal
         isOpen={donateModalOpen}
-        currentLang={currentLang}
+        currentLang="en"
         onClose={() => setDonateModalOpen(false)}
       />
     </div>

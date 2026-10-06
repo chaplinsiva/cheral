@@ -1,18 +1,18 @@
 "use client";
 
-/* agent-notes: { ctx: "Clean Header with logo emblem and text logo, simple Donate button, and no non-profit badge", deps: [public/logos], state: active, last: "sato@2026-08-25" } */
+/* agent-notes: { ctx: "English-only Header with logo, volunteering form link, Contact Us CTA, and small Donate button", deps: [public/logos], state: active, last: "sato@2026-10-06" } */
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
-  currentLang: "en" | "ta";
-  onToggleLang: (lang: "en" | "ta") => void;
+  currentLang?: "en" | "ta";
+  onToggleLang?: (lang: "en" | "ta") => void;
   onOpenDonate: () => void;
 }
 
-export default function Header({ currentLang, onToggleLang, onOpenDonate }: HeaderProps) {
+export default function Header({ onOpenDonate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -34,43 +34,36 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
           </div>
 
           <div className="relative h-12 md:h-16 w-auto min-w-[140px] md:min-w-[190px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
-            {currentLang === "ta" ? (
-              <Image
-                src="/logos/Final Cheral logo transparent.png"
-                alt="Cheral Tamil Logo"
-                width={779}
-                height={512}
-                className="object-contain max-h-12 md:max-h-16 w-auto"
-                priority
-                unoptimized
-              />
-            ) : (
-              <Image
-                src="/logos/Cheral eng logo copy.png"
-                alt="Cheral English Logo"
-                width={857}
-                height={397}
-                className="object-contain max-h-12 md:max-h-16 w-auto"
-                priority
-                unoptimized
-              />
-            )}
+            <Image
+              src="/logos/Cheral eng logo copy.png"
+              alt="Cheral English Logo"
+              width={857}
+              height={397}
+              className="object-contain max-h-12 md:max-h-16 w-auto"
+              priority
+              unoptimized
+            />
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-7 text-xs sm:text-sm font-bold text-[#222222]">
           <Link href="/#about" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "எங்களைப் பற்றி" : "About Us"}
+            About Us
           </Link>
-          <Link href="/#what-we-do" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
-          </Link>
-          <Link href="/#objectives" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "நோக்கங்கள் & கொள்கைகள்" : "Objectives & Values"}
-          </Link>
+          <a
+            href="https://forms.gle/ktUF1JXeGNbfM2AAA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#a62a14] transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>Volunteering</span>
+            <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
           <Link href="/gallery" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "காட்சியகம்" : "Gallery"}
+            Gallery
           </Link>
           <a
             href="https://cheraltrust.blogspot.com/"
@@ -78,46 +71,32 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             rel="noopener noreferrer"
             className="hover:text-[#a62a14] transition-colors inline-flex items-center gap-1"
           >
-            <span>{currentLang === "ta" ? "வலைப்பதிவு" : "Blogs"}</span>
+            <span>Blogs</span>
             <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
         </nav>
 
-        {/* Right Actions: Language Switcher & Simple Donate CTA */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <div className="bg-[#E8D9CC]/80 p-0.5 rounded-full flex items-center text-[11px] font-bold border border-[#D9D9D9]">
-            <button
-              onClick={() => onToggleLang("en")}
-              className={`px-3 py-1 rounded-full transition-all duration-200 ${
-                currentLang === "en"
-                  ? "bg-[#4A0E17] text-white shadow-sm"
-                  : "text-[#6F6F6F] hover:text-[#222222]"
-              }`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => onToggleLang("ta")}
-              className={`px-3 py-1 rounded-full transition-all duration-200 ${
-                currentLang === "ta"
-                  ? "bg-[#4A0E17] text-white shadow-sm"
-                  : "text-[#6F6F6F] hover:text-[#222222]"
-              }`}
-            >
-              தமிழ்
-            </button>
-          </div>
-
-          {/* Simple Donate Button */}
+        {/* Right Actions: Small Subtle Donate & Contact Us CTA */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Small, subtle Donate button - not highlighted */}
           <button
             onClick={onOpenDonate}
-            className="px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs font-bold text-white bg-[#a62a14] hover:bg-[#4A0E17] shadow-sm hover:shadow transition-all duration-200 flex items-center gap-1.5 active:scale-95"
+            className="px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium text-[#4A0E17] hover:text-[#a62a14] bg-white/80 hover:bg-[#E8D9CC]/60 border border-[#D9D9D9] transition-all duration-200 flex items-center gap-1 active:scale-95"
+            title="Donate"
           >
-            <span>♥</span>
-            <span>{currentLang === "ta" ? "நன்கொடை" : "Donate"}</span>
+            <span className="text-xs text-[#a62a14]">♥</span>
+            <span className="inline">Donate</span>
           </button>
+
+          {/* Primary CTA: Contact Us button */}
+          <Link
+            href="/#contact"
+            className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-bold text-white bg-[#a62a14] hover:bg-[#4A0E17] shadow-xs hover:shadow transition-all duration-200 flex items-center gap-1.5 active:scale-95"
+          >
+            <span>Contact Us</span>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -144,28 +123,26 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
-            {currentLang === "ta" ? "எங்களைப் பற்றி" : "About Us"}
+            About Us
           </Link>
-          <Link
-            href="/#what-we-do"
+          <a
+            href="https://forms.gle/ktUF1JXeGNbfM2AAA"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
+            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14] flex items-center justify-between"
           >
-            {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
-          </Link>
-          <Link
-            href="/#objectives"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
-          >
-            {currentLang === "ta" ? "நோக்கங்கள் & கொள்கைகள்" : "Objectives & Values"}
-          </Link>
+            <span>Volunteering</span>
+            <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
           <Link
             href="/gallery"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
-            {currentLang === "ta" ? "காட்சியகம்" : "Gallery"}
+            Gallery
           </Link>
           <a
             href="https://cheraltrust.blogspot.com/"
@@ -174,21 +151,31 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14] flex items-center justify-between"
           >
-            <span>{currentLang === "ta" ? "வலைப்பதிவு (Blogs)" : "Blogs"}</span>
+            <span>Blogs</span>
             <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenDonate();
-            }}
-            className="w-full text-left py-2.5 px-4 rounded-xl bg-[#a62a14] text-white font-bold text-xs flex items-center justify-between shadow-sm"
-          >
-            <span>{currentLang === "ta" ? "நன்கொடை" : "Donate"}</span>
-            <span>♥</span>
-          </button>
+
+          <div className="pt-2 flex flex-col gap-2.5">
+            <Link
+              href="/#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center py-2.5 px-4 rounded-xl bg-[#a62a14] hover:bg-[#4A0E17] text-white font-bold text-xs shadow-sm transition-colors block"
+            >
+              Contact Us
+            </Link>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenDonate();
+              }}
+              className="w-full text-center py-2 px-3 rounded-xl border border-[#D9D9D9] text-[#4A0E17] hover:bg-[#E8D9CC]/40 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
+            >
+              <span className="text-[#a62a14] text-xs">♥</span>
+              <span>Donate</span>
+            </button>
+          </div>
         </div>
       )}
     </header>

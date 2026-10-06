@@ -1,19 +1,19 @@
 "use client";
 
-/* agent-notes: { ctx: "Footer component displaying clean original logo colors without white invert filter, Madurai contact, and secondary color #a62a14", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-08-25" } */
+/* agent-notes: { ctx: "English-only Footer with id='contact', English logo, Madurai contact info", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-10-06" } */
 
 import Image from "next/image";
 import Link from "next/link";
 import { cheralBankDetails } from "@/data/cheralData";
 
 interface FooterProps {
-  currentLang: "en" | "ta";
+  currentLang?: "en" | "ta";
   onOpenDonate: () => void;
 }
 
-export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
+export default function Footer({ onOpenDonate }: FooterProps) {
   return (
-    <footer className="bg-[#2D0A0E] text-[#F7F3EF] py-16 border-t border-[#a62a14]/30">
+    <footer id="contact" className="bg-[#2D0A0E] text-[#F7F3EF] py-16 border-t border-[#a62a14]/30 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
           
@@ -32,32 +32,19 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
                 />
               </div>
 
-              {/* Main Brand Logo in Clean Original Color */}
-              {currentLang === "ta" ? (
-                <Image
-                  src="/logos/Final Cheral logo transparent.png"
-                  alt="Cheral Tamil Logo"
-                  width={779}
-                  height={512}
-                  className="object-contain max-h-11 md:max-h-14 w-auto"
-                  unoptimized
-                />
-              ) : (
-                <Image
-                  src="/logos/Cheral eng logo copy.png"
-                  alt="Cheral English Logo"
-                  width={857}
-                  height={397}
-                  className="object-contain max-h-11 md:max-h-14 w-auto"
-                  unoptimized
-                />
-              )}
+              {/* Main Brand English Logo */}
+              <Image
+                src="/logos/Cheral eng logo copy.png"
+                alt="Cheral English Logo"
+                width={857}
+                height={397}
+                className="object-contain max-h-11 md:max-h-14 w-auto"
+                unoptimized
+              />
             </Link>
 
             <p className="text-xs text-[#E8D9CC]/90 max-w-sm leading-relaxed font-sans">
-              {currentLang === "ta"
-                ? "சேரல் அமைப்பு (CHERAL) என்பது ஆராய்ச்சி, கல்வி, ஆவணப்படுத்தல் மற்றும் சமூக பங்கேற்பு மூலம் இயற்கை சுற்றுச்சூழல், பல்லுயிர்ப் பெருக்கம் மற்றும் பண்பாட்டு பாரம்பரியத்தைப் பாதுகாக்கும் தொண்டு நிறுவனமாகும்."
-                : "CHERAL (Centre for Heritage and Ecological Research through Arts and Literature) is a non-profit organization committed to conserving natural ecosystems, biodiversity, and cultural heritage."}
+              CHERAL (Centre for Heritage and Ecological Research through Arts and Literature) is a non-profit organization committed to conserving natural ecosystems, biodiversity, and cultural heritage.
             </p>
 
             <button
@@ -65,14 +52,14 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#a62a14] hover:bg-white hover:text-[#4A0E17] text-white text-xs font-bold shadow-md transition-all"
             >
               <span>♥</span>
-              <span>{currentLang === "ta" ? "அறக்கட்டளைக்கு நன்கொடை" : "Donate to Cheral Trust"}</span>
+              <span>Donate to Cheral Trust</span>
             </button>
           </div>
 
           {/* Core Initiatives Links */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#a62a14]">
-              {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
+              What We Do
             </h4>
             <ul className="space-y-2 text-xs text-[#E8D9CC]/80">
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Public Awareness Campaigns</Link></li>
@@ -87,7 +74,7 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
           {/* Official Contact Info & Address */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#a62a14]">
-              {currentLang === "ta" ? "தொடர்பு விவரங்கள்" : "Official Contact Info"}
+              Official Contact Info
             </h4>
             <div className="text-xs text-[#E8D9CC]/90 leading-relaxed space-y-2 font-sans">
               <p className="font-bold text-white">{cheralBankDetails.organizationName}</p>
