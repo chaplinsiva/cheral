@@ -35,17 +35,25 @@ test("Header component should contain blog link to https://cheraltrust.blogspot.
   );
 });
 
-test("Header component should contain volunteering form link", () => {
+test("Header component should contain Join Cheral dropdown with volunteer form and fund a project links", () => {
   const headerPath = path.resolve("src/components/Header.tsx");
   const content = fs.readFileSync(headerPath, "utf-8");
 
+  assert.ok(
+    content.includes("Join Cheral"),
+    "Header.tsx must contain Join Cheral"
+  );
+  assert.ok(
+    content.includes("Become a volunteer"),
+    "Header.tsx must contain Become a volunteer option"
+  );
   assert.ok(
     content.includes("https://forms.gle/ktUF1JXeGNbfM2AAA"),
     "Header.tsx must link to Google forms volunteering link"
   );
   assert.ok(
-    content.includes("Volunteering"),
-    "Header.tsx must display Volunteering"
+    content.includes('href="/fund-a-project"'),
+    "Header.tsx must link to /fund-a-project"
   );
 });
 
@@ -104,5 +112,41 @@ test("Header component should be English-only without language toggle buttons or
     "Header.tsx should not contain Tamil logo"
   );
 });
+
+test("fund-a-project page should exist and include all requested support and contact details", () => {
+  const fundPath = path.resolve("src/app/fund-a-project/page.tsx");
+  assert.ok(fs.existsSync(fundPath), "Fund a project page must exist");
+  const content = fs.readFileSync(fundPath, "utf-8");
+
+  assert.ok(
+    content.includes("CHERAL needs your support"),
+    "Page must include 'CHERAL needs your support'"
+  );
+  assert.ok(
+    content.includes("Your support helps CHERAL carry out its work in heritage conservation"),
+    "Page must include work description"
+  );
+  assert.ok(
+    content.includes("organise heritage and nature walks"),
+    "Page must include contributions description"
+  );
+  assert.ok(
+    content.includes("contribute to a specific project, or collaborate with us"),
+    "Page must include contact callout"
+  );
+  assert.ok(
+    content.includes("cheralBankDetails.email") || content.includes("cheraltrust@gmail.com"),
+    "Page must include official contact email"
+  );
+  assert.ok(
+    content.includes("cheralBankDetails.cell") || content.includes("95976 71962"),
+    "Page must include official contact phone"
+  );
+  assert.ok(
+    content.includes("cheraltrust.blogspot.com"),
+    "Page must include website/blog link"
+  );
+});
+
 
 

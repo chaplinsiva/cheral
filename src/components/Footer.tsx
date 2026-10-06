@@ -67,6 +67,8 @@ export default function Footer({ onOpenDonate }: FooterProps) {
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Nature & Heritage Walks</Link></li>
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Native Tree Plantation</Link></li>
               <li><Link href="/gallery" className="hover:text-[#E8D9CC] text-[#a62a14] font-semibold transition-colors">📸 Photo Gallery</Link></li>
+              <li><Link href="/fund-a-project" className="hover:text-white transition-colors">Fund a Project</Link></li>
+              <li><a href="https://forms.gle/ktUF1JXeGNbfM2AAA" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Become a Volunteer ↗</a></li>
               <li><Link href="/#objectives" className="hover:text-white transition-colors">Objectives & 10 Core Values</Link></li>
             </ul>
           </div>
@@ -94,8 +96,9 @@ export default function Footer({ onOpenDonate }: FooterProps) {
           <p>© {new Date().getFullYear()} Cheral Trust (Centre for Heritage and Ecological Research). All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
+            <Link href="/fund-a-project" className="hover:text-white transition-colors">Fund a Project</Link>
             <Link href="/#objectives" className="hover:text-white transition-colors">Objectives & Values</Link>
-            <button onClick={onOpenDonate} className="text-[#a62a14] hover:underline font-semibold">
+            <button onClick={onOpenDonate} className="text-[#a62a14] hover:underline font-semibold cursor-pointer">
               Donate (Bank / UPI)
             </button>
           </div>
