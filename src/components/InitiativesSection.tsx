@@ -84,35 +84,9 @@ export default function InitiativesSection({
 
               {/* Content Body */}
               <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                <p className="text-[#222222]/80 leading-relaxed text-base mb-6 font-sans">
+                <p className="text-[#222222]/80 leading-relaxed text-base font-sans">
                   {item.description[currentLang]}
                 </p>
-
-                <div className="pt-4 border-t border-[#D9D9D9]/40 flex items-center justify-between">
-                  <span className="text-xs text-[#6F6F6F] font-mono">
-                    CHERAL TRUST INITIATIVE
-                  </span>
-
-                  <button
-                    onClick={() => onSelectInitiative && onSelectInitiative(item)}
-                    className="inline-flex items-center text-sm font-semibold text-[#a62a14] hover:text-[#4A0E17] transition-colors group-hover:translate-x-1 duration-200"
-                  >
-                    {t.viewDetails}
-                    <svg
-                      className="w-4 h-4 ml-1.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </button>
-                </div>
               </div>
             </div>
           ))}

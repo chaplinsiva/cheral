@@ -80,48 +80,49 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
             {/* Dropdown Card */}
             {joinDropdownOpen && (
-              <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl border border-[#D9D9D9]/90 py-2.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute top-full left-0 mt-1 w-68 bg-white rounded-2xl shadow-2xl border border-[#D9D9D9]/80 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 <a
                   href="https://forms.gle/ktUF1JXeGNbfM2AAA"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setJoinDropdownOpen(false)}
-                  className="flex items-start gap-3 px-4 py-2.5 hover:bg-[#F7F3EF] transition-colors group"
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-[#F7F3EF] transition-all group"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-[#a62a14]/10 text-[#a62a14] flex items-center justify-center font-bold text-sm shrink-0 group-hover:bg-[#a62a14] group-hover:text-white transition-colors">
-                    🤝
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-xs font-bold text-[#222222] group-hover:text-[#a62a14] flex items-center justify-between">
-                      <span>Become a volunteer</span>
-                      <svg className="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#4A0E17]/5 text-[#4A0E17] group-hover:bg-[#4A0E17] group-hover:text-white flex items-center justify-center shrink-0 transition-colors border border-[#4A0E17]/10">
+                      <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
                     </div>
-                    <div className="text-[11px] text-[#6F6F6F] mt-0.5 leading-snug">
-                      Sign up for field activities
-                    </div>
+                    <span className="text-sm font-semibold text-[#222222] group-hover:text-[#4A0E17]">
+                      Become a volunteer
+                    </span>
                   </div>
+                  <svg className="w-4 h-4 text-[#6F6F6F] opacity-40 group-hover:opacity-100 group-hover:text-[#4A0E17] transition-all group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
 
-                <div className="my-1.5 border-t border-[#D9D9D9]/50" />
+                <div className="my-1 border-t border-[#D9D9D9]/50" />
 
                 <Link
                   href="/fund-a-project"
                   onClick={() => setJoinDropdownOpen(false)}
-                  className="flex items-start gap-3 px-4 py-2.5 hover:bg-[#F7F3EF] transition-colors group"
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-[#F7F3EF] transition-all group"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-[#4A0E17]/10 text-[#4A0E17] flex items-center justify-center font-bold text-sm shrink-0 group-hover:bg-[#4A0E17] group-hover:text-white transition-colors">
-                    🌿
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-xs font-bold text-[#222222] group-hover:text-[#a62a14]">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#a62a14]/5 text-[#a62a14] group-hover:bg-[#a62a14] group-hover:text-white flex items-center justify-center shrink-0 transition-colors border border-[#a62a14]/10">
+                      <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-semibold text-[#222222] group-hover:text-[#a62a14]">
                       Fund a Project
-                    </div>
-                    <div className="text-[11px] text-[#6F6F6F] mt-0.5 leading-snug">
-                      Support research & restoration
-                    </div>
+                    </span>
                   </div>
+                  <svg className="w-4 h-4 text-[#6F6F6F] opacity-40 group-hover:opacity-100 group-hover:text-[#a62a14] transition-all group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
             )}
@@ -219,25 +220,6 @@ export default function Header({ onOpenDonate }: HeaderProps) {
             </div>
           </div>
 
-          <Link
-            href="/gallery"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
-          >
-            Gallery
-          </Link>
-          <a
-            href="https://cheraltrust.blogspot.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14] flex items-center justify-between"
-          >
-            <span>Blogs</span>
-            <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
           <Link
             href="/gallery"
             onClick={() => setMobileMenuOpen(false)}

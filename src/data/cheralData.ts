@@ -113,39 +113,6 @@ export const cheralObjectives = [
 
 export const cheralInitiatives: Initiative[] = [
   {
-    id: "heritage-walks",
-    title: { en: "Heritage & Cultural Walks", ta: "வரலாற்று & பாரம்பரிய நடைபயணம்" },
-    category: { en: "Historical Exploration & Awareness", ta: "வரலாற்று ஆய்வு & விழிப்புணர்வு" },
-    description: {
-      en: "We organize guided heritage walks across ancient monuments, archaeological landmarks, and rock inscriptions, cultivating deep public awareness and historical consciousness through on-site learning.",
-      ta: "பண்டைய வரலாற்றுச் சின்னங்கள், தொல்லியல் சான்றுகள் மற்றும் கல்வெட்டுகளை நேரில் பார்வையிட்டு, பொதுமக்களிடையே வரலாற்று விழிப்புணர்வையும் பண்பாட்டுப் பெருமிதத்தையும் ஏற்படுத்தும் கள நடைபயணங்கள்.",
-    },
-    image: "/images/pdf/cheral_pdf_image_7.jpg",
-    badge: { en: "Guided Heritage Trails", ta: "பாரம்பரிய களப்பயணம்" },
-  },
-  {
-    id: "education",
-    title: { en: "Student Education Programs", ta: "மாணவர் கல்வித் திட்டங்கள்" },
-    category: { en: "Youth & Scientific Curiosity", ta: "இளைஞர் & அறிவியல் கல்வி" },
-    description: {
-      en: "We empower students through interactive workshops, field visits, and hands-on learning experiences that nurture scientific curiosity, environmental responsibility, and appreciation for cultural heritage.",
-      ta: "மாணவர்களுக்கு களப்பயணங்கள் மற்றும் செயல்முறைப் பயிற்சிகள் மூலம் அறிவியல் ஆர்வத்தையும் பாரம்பரிய உணர்வையும் வளர்த்தல்.",
-    },
-    image: "/images/pdf/cheral_pdf_image_14.jpg",
-    badge: { en: "School & Field Workshops", ta: "பள்ளி பயிலரங்கம்" },
-  },
-  {
-    id: "plantation",
-    title: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" },
-    category: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
-    description: {
-      en: "We promote native tree plantation initiatives to restore green cover, strengthen local ecosystems, and encourage community participation in environmental stewardship.",
-      ta: "பழமையான நாட்டு மரக் கன்றுகளை நட்டு, பசுமைப் போர்வையை அதிகரித்து உள்ளூர் சுற்றுச்சூழல் அமைப்பை மீளமைத்தல்.",
-    },
-    image: "/images/tree_plantation_event.jpg",
-    badge: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
-  },
-  {
     id: "nature-walks",
     title: { en: "Nature & Biodiversity Walks", ta: "இயற்கை & பல்லுயிர் நடைபயணம்" },
     category: { en: "Ecological Observation", ta: "சுற்றுச்சூழல் கள ஆய்வு" },
@@ -168,6 +135,17 @@ export const cheralInitiatives: Initiative[] = [
     badge: { en: "Citizen Science & Birding", ta: "பறவைகள் நோக்குதல்" },
   },
   {
+    id: "education",
+    title: { en: "Student Education Programs", ta: "மாணவர் கல்வித் திட்டங்கள்" },
+    category: { en: "Youth & Scientific Curiosity", ta: "இளைஞர் & அறிவியல் கல்வி" },
+    description: {
+      en: "We empower students through interactive workshops, field visits, and hands-on learning experiences that nurture scientific curiosity, environmental responsibility, and appreciation for cultural heritage.",
+      ta: "மாணவர்களுக்கு களப்பயணங்கள் மற்றும் செயல்முறைப் பயிற்சிகள் மூலம் அறிவியல் ஆர்வத்தையும் பாரம்பரிய உணர்வையும் வளர்த்தல்.",
+    },
+    image: "/images/pdf/cheral_pdf_image_14.jpg",
+    badge: { en: "School & Field Workshops", ta: "பள்ளி பயிலரங்கம்" },
+  },
+  {
     id: "college-collaborations",
     title: { en: "College & Institutional Collaborations", ta: "கல்லூரி & கல்வி நிறுவனக் கூட்டாண்மை" },
     category: { en: "Academic & Youth Outreach", ta: "கல்வி & இளைஞர் கூட்டாண்மை" },
@@ -177,6 +155,28 @@ export const cheralInitiatives: Initiative[] = [
     },
     image: "/images/college_collaboration.jpg",
     badge: { en: "Academic Collaboration", ta: "கல்லூரி கூட்டாண்மை" },
+  },
+  {
+    id: "plantation",
+    title: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" },
+    category: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
+    description: {
+      en: "We promote native tree plantation initiatives to restore green cover, strengthen local ecosystems, and encourage community participation in environmental stewardship.",
+      ta: "பழமையான நாட்டு மரக் கன்றுகளை நட்டு, பசுமைப் போர்வையை அதிகரித்து உள்ளூர் சுற்றுச்சூழல் அமைப்பை மீளமைத்தல்.",
+    },
+    image: "/images/tree_plantation_event.jpg",
+    badge: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
+  },
+  {
+    id: "heritage-walks",
+    title: { en: "Heritage & Cultural Walks", ta: "வரலாற்று & பாரம்பரிய நடைபயணம்" },
+    category: { en: "Historical Exploration & Awareness", ta: "வரலாற்று ஆய்வு & விழிப்புணர்வு" },
+    description: {
+      en: "We organize guided heritage walks across ancient monuments, archaeological landmarks, and rock inscriptions, cultivating deep public awareness and historical consciousness through on-site learning.",
+      ta: "பண்டைய வரலாற்றுச் சின்னங்கள், தொல்லியல் சான்றுகள் மற்றும் கல்வெட்டுகளை நேரில் பார்வையிட்டு, பொதுமக்களிடையே வரலாற்று விழிப்புணர்வையும் பண்பாட்டுப் பெருமிதத்தையும் ஏற்படுத்தும் கள நடைபயணங்கள்.",
+    },
+    image: "/images/pdf/cheral_pdf_image_7.jpg",
+    badge: { en: "Guided Heritage Trails", ta: "பாரம்பரிய களப்பயணம்" },
   },
 ];
 

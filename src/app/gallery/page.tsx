@@ -50,8 +50,8 @@ export default function GalleryPage() {
   const t = {
     breadcrumbHome: "Home",
     breadcrumbGallery: "Gallery",
-    badge: "VISUAL ARCHIVES",
-    mainTitle: "Cheral Photo Collage",
+    badge: "GALLERY",
+    mainTitle: "Gallery",
     photoCount: `${cheralGalleryItems.length} Photographs`,
   };
 

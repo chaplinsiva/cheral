@@ -59,14 +59,14 @@ export default function Footer({ onOpenDonate }: FooterProps) {
           {/* Core Initiatives Links */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#a62a14]">
-              What We Do
+              Cheral
             </h4>
             <ul className="space-y-2 text-xs text-[#E8D9CC]/80">
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Public Awareness Campaigns</Link></li>
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Student Education Programs</Link></li>
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Nature & Heritage Walks</Link></li>
               <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Native Tree Plantation</Link></li>
-              <li><Link href="/gallery" className="hover:text-[#E8D9CC] text-[#a62a14] font-semibold transition-colors">📸 Photo Gallery</Link></li>
+              <li><Link href="/gallery" className="hover:text-white transition-colors">Photo Gallery</Link></li>
               <li><Link href="/fund-a-project" className="hover:text-white transition-colors">Fund a Project</Link></li>
               <li><a href="https://forms.gle/ktUF1JXeGNbfM2AAA" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Become a Volunteer ↗</a></li>
               <li><Link href="/#objectives" className="hover:text-white transition-colors">Objectives & 10 Core Values</Link></li>

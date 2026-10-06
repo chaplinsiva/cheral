@@ -183,18 +183,6 @@ export default function FundProjectPage() {
                   <span>♥</span>
                   <span>Donate to Trust / View Bank Details</span>
                 </button>
-
-                <a
-                  href="https://forms.gle/ktUF1JXeGNbfM2AAA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs sm:text-sm transition-all duration-200 flex items-center gap-1.5"
-                >
-                  <span>Become a Volunteer</span>
-                  <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
               </div>
             </div>
 
