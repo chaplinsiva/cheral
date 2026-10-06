@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "Main application page assembling Cheral Trust sections (Hero, About, Initiatives with Bird Watching, Objectives, CoreValues, Bank Modal)", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/AboutSection.tsx, src/components/InitiativesSection.tsx, src/components/ObjectivesSection.tsx, src/components/CoreValuesSection.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-08-25" } */
+/* agent-notes: { ctx: "Main application page assembling Cheral Trust sections (Hero, About, Initiatives, unified Objectives & Core Values, Bank Modal)", deps: [src/components/Header.tsx, src/components/Hero.tsx, src/components/AboutSection.tsx, src/components/InitiativesSection.tsx, src/components/ObjectivesSection.tsx, src/components/Footer.tsx, src/components/DonateModal.tsx], state: active, last: "sato@2026-08-30" } */
 
 import { useState } from "react";
 import Header from "@/components/Header";
@@ -8,7 +8,6 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import InitiativesSection from "@/components/InitiativesSection";
 import ObjectivesSection from "@/components/ObjectivesSection";
-import CoreValuesSection from "@/components/CoreValuesSection";
 
 import Footer from "@/components/Footer";
 import DonateModal from "@/components/DonateModal";
@@ -51,11 +50,8 @@ export default function Home() {
           onSelectInitiative={() => setDonateModalOpen(true)}
         />
 
-        {/* 3 Key Objectives Section */}
+        {/* Unified 3 Key Objectives & 10 Core Values Section */}
         <ObjectivesSection currentLang={currentLang} />
-
-        {/* 10 Core Values Section (placed after Objectives) */}
-        <CoreValuesSection currentLang={currentLang} />
       </main>
 
       {/* Footer */}

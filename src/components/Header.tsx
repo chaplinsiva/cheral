@@ -60,18 +60,18 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-7 text-xs sm:text-sm font-bold text-[#222222]">
-          <a href="#about" className="hover:text-[#a62a14] transition-colors">
+          <Link href="/#about" className="hover:text-[#a62a14] transition-colors">
             {currentLang === "ta" ? "எங்களைப் பற்றி" : "About Us"}
-          </a>
-          <a href="#what-we-do" className="hover:text-[#a62a14] transition-colors">
+          </Link>
+          <Link href="/#what-we-do" className="hover:text-[#a62a14] transition-colors">
             {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
-          </a>
-          <a href="#objectives" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
-          </a>
-          <a href="#core-values" className="hover:text-[#a62a14] transition-colors">
-            {currentLang === "ta" ? "10 கொள்கைகள்" : "10 Core Values"}
-          </a>
+          </Link>
+          <Link href="/#objectives" className="hover:text-[#a62a14] transition-colors">
+            {currentLang === "ta" ? "நோக்கங்கள் & கொள்கைகள்" : "Objectives & Values"}
+          </Link>
+          <Link href="/gallery" className="hover:text-[#a62a14] transition-colors">
+            {currentLang === "ta" ? "காட்சியகம்" : "Gallery"}
+          </Link>
           <a
             href="https://cheraltrust.blogspot.com/"
             target="_blank"
@@ -139,34 +139,34 @@ export default function Header({ currentLang, onToggleLang, onOpenDonate }: Head
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#FFFFFF] border-b border-[#D9D9D9] px-6 py-5 space-y-4 animate-in fade-in slide-in-from-top duration-200">
-          <a
-            href="#about"
+          <Link
+            href="/#about"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
             {currentLang === "ta" ? "எங்களைப் பற்றி" : "About Us"}
-          </a>
-          <a
-            href="#what-we-do"
+          </Link>
+          <Link
+            href="/#what-we-do"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
             {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
-          </a>
-          <a
-            href="#objectives"
+          </Link>
+          <Link
+            href="/#objectives"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
-            {currentLang === "ta" ? "நோக்கங்கள்" : "Objectives"}
-          </a>
-          <a
-            href="#core-values"
+            {currentLang === "ta" ? "நோக்கங்கள் & கொள்கைகள்" : "Objectives & Values"}
+          </Link>
+          <Link
+            href="/gallery"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
-            {currentLang === "ta" ? "10 கொள்கைகள்" : "10 Core Values"}
-          </a>
+            {currentLang === "ta" ? "காட்சியகம்" : "Gallery"}
+          </Link>
           <a
             href="https://cheraltrust.blogspot.com/"
             target="_blank"

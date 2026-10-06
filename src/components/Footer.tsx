@@ -75,11 +75,12 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
               {currentLang === "ta" ? "செயல்பாடுகள்" : "What We Do"}
             </h4>
             <ul className="space-y-2 text-xs text-[#E8D9CC]/80">
-              <li><a href="#what-we-do" className="hover:text-white transition-colors">Public Awareness Campaigns</a></li>
-              <li><a href="#what-we-do" className="hover:text-white transition-colors">Student Education Programs</a></li>
-              <li><a href="#what-we-do" className="hover:text-white transition-colors">Nature & Heritage Walks</a></li>
-              <li><a href="#what-we-do" className="hover:text-white transition-colors">Native Tree Plantation</a></li>
-              <li><a href="#core-values" className="hover:text-white transition-colors">10 Core Values</a></li>
+              <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Public Awareness Campaigns</Link></li>
+              <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Student Education Programs</Link></li>
+              <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Nature & Heritage Walks</Link></li>
+              <li><Link href="/#what-we-do" className="hover:text-white transition-colors">Native Tree Plantation</Link></li>
+              <li><Link href="/gallery" className="hover:text-[#E8D9CC] text-[#a62a14] font-semibold transition-colors">📸 Photo Gallery</Link></li>
+              <li><Link href="/#objectives" className="hover:text-white transition-colors">Objectives & 10 Core Values</Link></li>
             </ul>
           </div>
 
@@ -105,7 +106,8 @@ export default function Footer({ currentLang, onOpenDonate }: FooterProps) {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8D9CC]/60 gap-4">
           <p>© {new Date().getFullYear()} Cheral Trust (Centre for Heritage and Ecological Research). All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#core-values" className="hover:text-white transition-colors">Core Values</a>
+            <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
+            <Link href="/#objectives" className="hover:text-white transition-colors">Objectives & Values</Link>
             <button onClick={onOpenDonate} className="text-[#a62a14] hover:underline font-semibold">
               Donate (Bank / UPI)
             </button>

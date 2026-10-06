@@ -12,21 +12,23 @@ test("cheralData.ts should contain bird watching initiative", () => {
   assert.match(content, /bird_watching_event\.jpg/, "bird-watching initiative must reference bird_watching_event.jpg");
 });
 
-test("page.tsx must have correct order: InitiativesSection -> ObjectivesSection -> CoreValuesSection", () => {
+test("page.tsx must have correct order: InitiativesSection -> ObjectivesSection (unified with Core Values)", () => {
   const pagePath = path.resolve("src/app/page.tsx");
-  const content = fs.readFileSync(pagePath, "utf-8");
+  const pageContent = fs.readFileSync(pagePath, "utf-8");
 
-  const initiativesIdx = content.indexOf("<InitiativesSection");
-  const objectivesIdx = content.indexOf("<ObjectivesSection");
-  const coreValuesIdx = content.indexOf("<CoreValuesSection");
+  const initiativesIdx = pageContent.indexOf("<InitiativesSection");
+  const objectivesIdx = pageContent.indexOf("<ObjectivesSection");
 
   assert.ok(initiativesIdx !== -1, "InitiativesSection must be imported and rendered");
   assert.ok(objectivesIdx !== -1, "ObjectivesSection must be imported and rendered");
-  assert.ok(coreValuesIdx !== -1, "CoreValuesSection must be imported and rendered");
-
   assert.ok(initiativesIdx < objectivesIdx, "ObjectivesSection must be placed after InitiativesSection");
-  assert.ok(objectivesIdx < coreValuesIdx, "CoreValuesSection must be placed after ObjectivesSection");
-  assert.equal(content.includes("<ProgramsSection"), false, "ProgramsSection must be removed from page.tsx");
+
+  // Verify that ObjectivesSection contains both cheralObjectives and cheralCoreValues
+  const objPath = path.resolve("src/components/ObjectivesSection.tsx");
+  const objContent = fs.readFileSync(objPath, "utf-8");
+  assert.ok(objContent.includes("cheralObjectives"), "ObjectivesSection must import and render cheralObjectives");
+  assert.ok(objContent.includes("cheralCoreValues"), "ObjectivesSection must import and render cheralCoreValues");
+  assert.equal(pageContent.includes("<ProgramsSection"), false, "ProgramsSection must be removed from page.tsx");
 });
 
 test("Header.tsx navigation should not contain #programs", () => {

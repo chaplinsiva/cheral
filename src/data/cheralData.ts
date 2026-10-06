@@ -135,17 +135,6 @@ export const cheralInitiatives: Initiative[] = [
     badge: { en: "School & Field Workshops", ta: "பள்ளி பயிலரங்கம்" },
   },
   {
-    id: "nature-walks",
-    title: { en: "Nature & Biodiversity Walks", ta: "இயற்கை & பல்லுயிர் நடைபயணம்" },
-    category: { en: "Ecological Observation", ta: "சுற்றுச்சூழல் கள ஆய்வு" },
-    description: {
-      en: "We organize guided nature trails that connect people with local ecosystems, birdlife, flora, and biodiversity, fostering environmental stewardship through immersive outdoor observation.",
-      ta: "உள்ளூர் சுற்றுச்சூழல் வளம், பல்லுயிர்ப் பெருக்கம் மற்றும் பறவைகளை நேரடியாகக் கண்டு உணரும் வழிநடத்தப்பட்ட இயற்கை நடைபயணங்கள்.",
-    },
-    image: "/images/nature_biodiversity_walk.jpg",
-    badge: { en: "Guided Nature Exploration", ta: "இயற்கை நடைபயணம்" },
-  },
-  {
     id: "plantation",
     title: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" },
     category: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
@@ -155,6 +144,17 @@ export const cheralInitiatives: Initiative[] = [
     },
     image: "/images/tree_plantation_event.jpg",
     badge: { en: "Ecological Restoration", ta: "சுற்றுச்சூழல் மீட்பு" },
+  },
+  {
+    id: "nature-walks",
+    title: { en: "Nature & Biodiversity Walks", ta: "இயற்கை & பல்லுயிர் நடைபயணம்" },
+    category: { en: "Ecological Observation", ta: "சுற்றுச்சூழல் கள ஆய்வு" },
+    description: {
+      en: "We organize guided nature trails that connect people with local ecosystems, birdlife, flora, and biodiversity, fostering environmental stewardship through immersive outdoor observation.",
+      ta: "உள்ளூர் சுற்றுச்சூழல் வளம், பல்லுயிர்ப் பெருக்கம் மற்றும் பறவைகளை நேரடியாகக் கண்டு உணரும் வழிநடத்தப்பட்ட இயற்கை நடைபயணங்கள்.",
+    },
+    image: "/images/nature_biodiversity_walk.jpg",
+    badge: { en: "Guided Nature Exploration", ta: "இயற்கை நடைபயணம்" },
   },
   {
     id: "bird-watching",
@@ -470,3 +470,296 @@ export const cheralPrograms: ProgramEvent[] = [
     },
   },
 ];
+
+export interface GalleryItem {
+  id: string;
+  title: { en: string; ta: string };
+  category: "all" | "heritage" | "nature" | "plantation" | "education" | "collaborations";
+  categoryLabel: { en: string; ta: string };
+  image: string;
+  location: { en: string; ta: string };
+  description: { en: string; ta: string };
+}
+
+export const cheralGalleryCategories = [
+  { id: "all", label: { en: "All Photos", ta: "அனைத்தும்" } },
+  { id: "heritage", label: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" } },
+  { id: "nature", label: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" } },
+  { id: "plantation", label: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" } },
+  { id: "education", label: { en: "Student Education", ta: "மாணவர் கல்வி" } },
+  { id: "collaborations", label: { en: "Collaborations", ta: "கூட்டாண்மை" } },
+];
+
+export const cheralGalleryItems: GalleryItem[] = [
+  {
+    id: "gallery-nature-walk",
+    title: {
+      en: "Guided Nature & Biodiversity Exploration",
+      ta: "இயற்கை மற்றும் பல்லுயிர் கள நடைபயணம்",
+    },
+    category: "nature",
+    categoryLabel: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" },
+    image: "/images/nature_biodiversity_walk.jpg",
+    location: { en: "Madurai River Basin & Forests", ta: "மதுரை ஆற்றுப் படுகை மற்றும் காடுகள்" },
+    description: {
+      en: "Connecting citizens and students with local flora, riparian habitats, and native ecosystems through immersive field exploration.",
+      ta: "உள்ளூர் தாவரங்கள் மற்றும் பல்லுயிர்ப் பெருக்கத்தை நேரடியாகக் கண்டுணரும் கள நடைபயணம்.",
+    },
+  },
+  {
+    id: "gallery-bird-watching",
+    title: {
+      en: "Citizen Science Bird Watching Expedition",
+      ta: "பறவைகள் நோக்குதல் மற்றும் சமூக சூழலியல் ஆய்வு",
+    },
+    category: "nature",
+    categoryLabel: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" },
+    image: "/images/bird_watching_event.jpg",
+    location: { en: "Wetlands of Southern Tamil Nadu", ta: "தென் தமிழகத்தின் ஈரநிலங்கள்" },
+    description: {
+      en: "Documenting avian richness and wetland biodiversity with young nature enthusiasts, students, and ornithology volunteers.",
+      ta: "பறவை இனங்கள் மற்றும் நீர்நிலைப் பல்லுயிர்களை ஆவணப்படுத்தும் மாணவர் மற்றும் சமூக நிகழ்வு.",
+    },
+  },
+  {
+    id: "gallery-tree-plantation",
+    title: {
+      en: "Indigenous Tree Plantation & Green Corridor",
+      ta: "நாட்டு மரங்கள் நடுதல் மற்றும் பசுமைப் போர்வை மீட்பு",
+    },
+    category: "plantation",
+    categoryLabel: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" },
+    image: "/images/tree_plantation_event.jpg",
+    location: { en: "Madurai & Surrounding Villages", ta: "மதுரை மற்றும் கிராமப்புற பகுதிகள்" },
+    description: {
+      en: "Community afforestation drives planting native drought-resilient species like Marudham, Neem, and Vaagai to restore local microclimates.",
+      ta: "வறட்சியைத் தாங்கும் பூர்வீக நாட்டு மரக் கன்றுகளை நட்டு வளர்த்து உள்ளூர் சூழலை மீளமைத்தல்.",
+    },
+  },
+  {
+    id: "gallery-college-outreach",
+    title: {
+      en: "Youth & Academic Institutional Partnerships",
+      ta: "கல்லூரி மாணவர் கூட்டாண்மை மற்றும் தலைமைப் பண்பு முகாம்",
+    },
+    category: "collaborations",
+    categoryLabel: { en: "Collaborations", ta: "கூட்டாண்மை" },
+    image: "/images/college_collaboration.jpg",
+    location: { en: "University Campuses & Study Centers", ta: "பல்கலைக்கழக வளாகங்கள் மற்றும் கள மையங்கள்" },
+    description: {
+      en: "Collaborating with college students, NCC cadets, and youth leaders in ecological research and heritage protection drives.",
+      ta: "கல்லூரி மாணவர்கள் மற்றும் இளைஞர்களுடன் இணைந்து சுற்றுச்சூழல் விழிப்புணர்வுப் பணிகள்.",
+    },
+  },
+  {
+    id: "gallery-heritage-caves",
+    title: {
+      en: "Ancient Inscriptions & Rock Caves Exploration",
+      ta: "பண்டைய சமணர் படுகைகள் மற்றும் கல்வெட்டு ஆய்வு",
+    },
+    category: "heritage",
+    categoryLabel: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" },
+    image: "/images/pdf/cheral_pdf_image_7.jpg",
+    location: { en: "Samanarmalai & Ancient Hills, Madurai", ta: "சமணர்மலை மற்றும் வரலாற்று குன்றுகள்" },
+    description: {
+      en: "Guided on-site study of Tamil-Brahmi rock inscriptions and ancient heritage sites, instilling historical consciousness.",
+      ta: "தமிழ்-பிராமி கல்வெட்டுகள் மற்றும் தொல்லியல் சான்றுகளை நேரில் ஆராயும் களப்பயணம்.",
+    },
+  },
+  {
+    id: "gallery-student-workshop",
+    title: {
+      en: "Student Eco-Literacy & Science Camps",
+      ta: "மாணவர் சூழலியல் மற்றும் அறிவியல் களப் பயிலரங்கம்",
+    },
+    category: "education",
+    categoryLabel: { en: "Student Education", ta: "மாணவர் கல்வி" },
+    image: "/images/pdf/cheral_pdf_image_14.jpg",
+    location: { en: "Rural & Urban Schools in Tamil Nadu", ta: "தமிழ்நாட்டின் கிராம மற்றும் நகரப் பள்ளிகள்" },
+    description: {
+      en: "Hands-on workshops nurturing scientific curiosity, microscope observations, and nature journaling among schoolchildren.",
+      ta: "பள்ளி மாணவர்களிடம் அறிவியல் ஆர்வம் மற்றும் இயற்கைக் குறிப்பேடு தயாரிக்கும் பயிற்சி.",
+    },
+  },
+  {
+    id: "gallery-tinai-dialogue",
+    title: {
+      en: "Tinai: Literature, Arts & Ecology Dialogue",
+      ta: "திணை: இலக்கியம், கலை & சூழலியல் கருத்தரங்கம்",
+    },
+    category: "heritage",
+    categoryLabel: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" },
+    image: "/images/pdf/cheral_pdf_image_12.jpg",
+    location: { en: "Public Auditoriums, Madurai", ta: "பொது அரங்கம், மதுரை" },
+    description: {
+      en: "Linking ancient Sangam literature’s landscape philosophy with contemporary climate action and cultural arts.",
+      ta: "சங்க இலக்கியத்தின் திணை கோட்பாடுகளை நவீன பருவநிலை பாதுகாப்புடன் இணைக்கும் கருத்தரங்கம்.",
+    },
+  },
+  {
+    id: "gallery-wetland-conservation",
+    title: {
+      en: "Wetland Ecosystems & Tank Health Study",
+      ta: "பாரம்பரிய கண்மாய் மற்றும் நீர்நிலைப் பாதுகாப்பு",
+    },
+    category: "nature",
+    categoryLabel: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" },
+    image: "/images/pdf/cheral_pdf_image_4.jpg",
+    location: { en: "Vaigai River Basin Tanks", ta: "வைகை ஆற்றுப் படுகை கண்மாய்கள்" },
+    description: {
+      en: "Documenting traditional waterbodies and training citizen volunteers in lake conservation ecology.",
+      ta: "பாரம்பரிய நீர்நிலைகளை ஆவணப்படுத்தி நீர் மேலாண்மை விழிப்புணர்வை விதைத்தல்.",
+    },
+  },
+  {
+    id: "gallery-heritage-documentation",
+    title: {
+      en: "Heritage Monument Documentation Drive",
+      ta: "வரலாற்றுச் சின்னங்கள் ஆவணப்படுத்தல் பயணம்",
+    },
+    category: "heritage",
+    categoryLabel: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" },
+    image: "/images/pdf/cheral_pdf_image_2.jpg",
+    location: { en: "Archaeological Sites, Tamil Nadu", ta: "தொல்லியல் இடங்கள், தமிழ்நாடு" },
+    description: {
+      en: "Field teams documenting historical sites and cultural heritage relics for educational archives.",
+      ta: "வரலாற்றுப் பெருமைமிக்க இடங்களை ஆவணப்படுத்தும் கள ஆய்வுப் பணிகள்.",
+    },
+  },
+  {
+    id: "gallery-riparian-biodiversity",
+    title: {
+      en: "Riparian Flora & Habitat Surveys",
+      ta: "ஆற்றங்கரை தாவர வளம் மற்றும் சூழலியல் ஆய்வு",
+    },
+    category: "nature",
+    categoryLabel: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" },
+    image: "/images/pdf/cheral_pdf_image_3.jpg",
+    location: { en: "Riverbanks & Sacred Groves", ta: "ஆற்றங்கரைகள் மற்றும் புனிதக் காடுகள்" },
+    description: {
+      en: "Surveying endemic flora and aquatic micro-habitats to evaluate ecosystem resilience.",
+      ta: "உள்ளூர் தாவரங்கள் மற்றும் நீர்வாழ் உயிரினங்களின் வாழ்விட ஆய்வு.",
+    },
+  },
+  {
+    id: "gallery-community-action",
+    title: {
+      en: "Community Participation & Climate Action",
+      ta: "சமூக பங்கேற்பு மற்றும் பருவநிலை பாதுகாப்பு",
+    },
+    category: "collaborations",
+    categoryLabel: { en: "Collaborations", ta: "கூட்டாண்மை" },
+    image: "/images/pdf/cheral_pdf_image_5.jpg",
+    location: { en: "Local Community Spaces", ta: "உள்ளூர் சமுதாயக் கூடங்கள்" },
+    description: {
+      en: "Empowering village communities and local youth to take ownership of natural resource conservation.",
+      ta: "இயற்கை வளங்களைப் பாதுகாப்பதில் உள்ளூர் மக்களை முதன்மைப் பங்காளிகளாக மாற்றுதல்.",
+    },
+  },
+  {
+    id: "gallery-eco-camps",
+    title: {
+      en: "Youth Environmental Leadership Camps",
+      ta: "இளைஞர் சுற்றுச்சூழல் தலைமைப் பயிற்சி முகாம்",
+    },
+    category: "education",
+    categoryLabel: { en: "Student Education", ta: "மாணவர் கல்வி" },
+    image: "/images/pdf/cheral_pdf_image_6.jpg",
+    location: { en: "Nature Reserves, Tamil Nadu", ta: "இயற்கை சரணாலயங்கள், தமிழ்நாடு" },
+    description: {
+      en: "Multi-day ecological immersion camps fostering climate responsibility and rational inquiry in youth.",
+      ta: "இளைஞர்களிடையே சுற்றுச்சூழல் விழிப்புணர்வு மற்றும் அறிவியல் சிந்தனையை வளர்க்கும் முகாம்கள்.",
+    },
+  },
+  {
+    id: "gallery-epigraphy-study",
+    title: {
+      en: "Rock Epigraphy & Deciphering Workshops",
+      ta: "கல்வெட்டியல் மற்றும் வரலாற்று சான்றுகள் பயிலரங்கம்",
+    },
+    category: "heritage",
+    categoryLabel: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" },
+    image: "/images/pdf/cheral_pdf_image_8.jpg",
+    location: { en: "Epigraphical Heritage Sites", ta: "கல்வெட்டு பாரம்பரிய இடங்கள்" },
+    description: {
+      en: "Teaching basic deciphering of ancient scripts to foster deep appreciation for regional history.",
+      ta: "பண்டைய எழுத்து முறைகள் மற்றும் கல்வெட்டுகளைப் புரிந்துகொள்ளும் நேரடிப் பயிற்சி.",
+    },
+  },
+  {
+    id: "gallery-afforestation-drive",
+    title: {
+      en: "Community Green Corridor Planting",
+      ta: "சமூக பசுமைப் பாதை உருவாக்கும் திட்டம்",
+    },
+    category: "plantation",
+    categoryLabel: { en: "Tree Plantation", ta: "மரங்கள் நடுதல்" },
+    image: "/images/pdf/cheral_pdf_image_9.jpg",
+    location: { en: "Public School & Rural Grounds", ta: "பள்ளி மற்றும் கிராமப்புற நிலங்கள்" },
+    description: {
+      en: "Planting native trees to build biodiversity-friendly ecological corridors across rural Madurai.",
+      ta: "பல்லுயிர்ப் பெருக்கத்திற்கு உதவும் பூர்வீக மரங்களை நட்டு பசுமை வழித்தடங்களை உருவாக்குதல்.",
+    },
+  },
+  {
+    id: "gallery-habitat-mapping",
+    title: {
+      en: "Biodiversity Mapping in Local Habitats",
+      ta: "உள்ளூர் வாழ்விடங்களில் பல்லுயிர்ப் பெருக்கம் வரைபடமாக்கல்",
+    },
+    category: "nature",
+    categoryLabel: { en: "Nature & Biodiversity", ta: "இயற்கை & பல்லுயிர்" },
+    image: "/images/pdf/cheral_pdf_image_10.jpg",
+    location: { en: "Grasslands & Hillocks", ta: "புல்வெளிகள் மற்றும் சிறுகுன்றுகள்" },
+    description: {
+      en: "Mapping biodiversity indicators and insect-pollinator health with local naturalists.",
+      ta: "பல்லுயிர் குறிகாட்டிகள் மற்றும் பூச்சியினங்களின் ஆரோக்கியத்தை ஆவணப்படுத்துதல்.",
+    },
+  },
+  {
+    id: "gallery-nature-journaling",
+    title: {
+      en: "Field Science & Nature Journaling with Students",
+      ta: "மாணவர்களுடன் கள அறிவியல் & இயற்கைக் குறிப்பேடு",
+    },
+    category: "education",
+    categoryLabel: { en: "Student Education", ta: "மாணவர் கல்வி" },
+    image: "/images/pdf/cheral_pdf_image_11.jpg",
+    location: { en: "Field Study Centers", ta: "கள ஆய்வு மையங்கள்" },
+    description: {
+      en: "Encouraging observational learning, botanical drawings, and scientific notes among students.",
+      ta: "மாணவர்களிடம் கவனிப்புத் திறன் மற்றும் தாவர ஆவணப்படுத்தல் முறைகளை வளர்த்தல்.",
+    },
+  },
+  {
+    id: "gallery-institutional-exchange",
+    title: {
+      en: "Academic Exchange & Research Collaboration",
+      ta: "கல்வி நிறுவனங்களுடனான ஆய்வுப் பகிர்வு",
+    },
+    category: "collaborations",
+    categoryLabel: { en: "Collaborations", ta: "கூட்டாண்மை" },
+    image: "/images/pdf/cheral_pdf_image_13.jpg",
+    location: { en: "Colleges & Research Laboratories", ta: "கல்லூரிகள் மற்றும் ஆய்வகங்கள்" },
+    description: {
+      en: "Partnering with educators and researchers to produce evidence-based conservation reports.",
+      ta: "ஆராய்ச்சியாளர்களுடன் இணைந்து அறிவியல் பூர்வமான சுற்றுச்சூழல் ஆய்வுகளை முன்னெடுத்தல்.",
+    },
+  },
+  {
+    id: "gallery-field-collective",
+    title: {
+      en: "Cheral Trust Field Expedition Collective",
+      ta: "சேரல் அறக்கட்டளை களப்பயணக் கூட்டமைப்பு",
+    },
+    category: "heritage",
+    categoryLabel: { en: "Heritage & Epigraphy", ta: "வரலாறு & தொல்லியல்" },
+    image: "/images/pdf/cheral_pdf_image_15.jpg",
+    location: { en: "Southern Tamil Nadu Heritage Circuit", ta: "தென் தமிழக வரலாற்றுத் தளம்" },
+    description: {
+      en: "Dedicated volunteers, historians, ecologists, and citizens united for heritage and nature protection.",
+      ta: "இயற்கை மற்றும் பாரம்பரிய பாதுகாப்பில் ஒன்றுபட்ட தன்னார்வலர்கள் மற்றும் சூழலியலாளர்கள்.",
+    },
+  },
+];
+
