@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "English-only Header with logo, volunteering form link, Contact Us CTA, and small Donate button", deps: [public/logos], state: active, last: "sato@2026-10-06" } */
+/* agent-notes: { ctx: "Header with internal /blog, volunteering dropdown, Contact Us CTA, and Donate button", deps: [public/logos], state: active, last: "antigravity@2026-10-11" } */
 
 import { useState } from "react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import Link from "next/link";
 interface HeaderProps {
   currentLang?: "en" | "ta";
   onToggleLang?: (lang: "en" | "ta") => void;
-  onOpenDonate: () => void;
+  onOpenDonate?: () => void;
 }
 
 export default function Header({ onOpenDonate }: HeaderProps) {
@@ -131,24 +131,19 @@ export default function Header({ onOpenDonate }: HeaderProps) {
           <Link href="/gallery" className="hover:text-[#a62a14] transition-colors">
             Gallery
           </Link>
-          <a
-            href="https://cheraltrust.blogspot.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#a62a14] transition-colors inline-flex items-center gap-1"
+          <Link
+            href="/blog"
+            className="hover:text-[#a62a14] transition-colors"
           >
-            <span>Blogs</span>
-            <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+            Blogs
+          </Link>
         </nav>
 
         {/* Right Actions: Small Subtle Donate & Contact Us CTA */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Small, subtle Donate button - not highlighted */}
           <button
-            onClick={onOpenDonate}
+            onClick={() => onOpenDonate?.()}
             className="px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-full text-xs font-medium text-[#4A0E17] hover:text-[#a62a14] bg-white/80 hover:bg-[#E8D9CC]/60 border border-[#D9D9D9] transition-all duration-200 flex items-center gap-1 active:scale-95 cursor-pointer"
             title="Donate"
           >
@@ -227,18 +222,13 @@ export default function Header({ onOpenDonate }: HeaderProps) {
           >
             Gallery
           </Link>
-          <a
-            href="https://cheraltrust.blogspot.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/blog"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14] flex items-center justify-between"
+            className="block text-sm font-bold text-[#222222] hover:text-[#a62a14]"
           >
-            <span>Blogs</span>
-            <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+            Blogs
+          </Link>
 
           <div className="pt-2 flex flex-col gap-2.5">
             <Link
@@ -251,7 +241,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenDonate();
+                onOpenDonate?.();
               }}
               className="w-full text-center py-2 px-3 rounded-xl border border-[#D9D9D9] text-[#4A0E17] hover:bg-[#E8D9CC]/40 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
             >

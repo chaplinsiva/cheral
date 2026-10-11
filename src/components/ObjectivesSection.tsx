@@ -1,14 +1,41 @@
 "use client";
 
-/* agent-notes: { ctx: "Unified section presenting Cheral Trust's 3 Key Objectives and 10 Guiding Core Values", deps: [src/data/cheralData.ts], state: active, last: "sato@2026-08-30" } */
+/* agent-notes: { ctx: "Unified section presenting Cheral Trust's 3 Key Objectives and 10 Guiding Core Values with Supabase DB loading", deps: [src/data/cheralData.ts, src/lib/supabase.ts], state: active, last: "antigravity@2026-10-11" } */
 
+import { useState, useEffect } from "react";
 import { cheralObjectives, cheralCoreValues } from "@/data/cheralData";
+import { supabase } from "@/lib/supabase";
 
 interface ObjectivesSectionProps {
   currentLang: "en" | "ta";
 }
 
 export default function ObjectivesSection({ currentLang }: ObjectivesSectionProps) {
+  const [coreValues, setCoreValues] = useState<any[]>(cheralCoreValues);
+
+  useEffect(() => {
+    async function loadValues() {
+      try {
+        const { data } = await supabase
+          .from("core_values")
+          .select("*")
+          .order("display_order", { ascending: true });
+
+        if (data && data.length > 0) {
+          const mapped = data.map((d: any, index: number) => ({
+            number: d.display_order || index + 1,
+            title: { en: d.title, ta: d.tamil_title || d.title },
+            description: { en: d.description, ta: d.description },
+          }));
+          setCoreValues(mapped);
+        }
+      } catch {
+        // keep fallback
+      }
+    }
+    loadValues();
+  }, []);
+
   const content = {
     en: {
       sectionBadge: "STRATEGIC VISION & ETHICAL FOUNDATION",
@@ -138,7 +165,7 @@ export default function ObjectivesSection({ currentLang }: ObjectivesSectionProp
 
             {/* 10 Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 relative z-10">
-              {cheralCoreValues.map((val) => (
+              {coreValues.map((val) => (
                 <div
                   key={val.number}
                   className="bg-[#2D0A0E]/90 backdrop-blur-sm border border-[#a62a14]/30 rounded-2xl p-5 hover:border-[#a62a14] hover:bg-[#3D0E14] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group shadow-sm"

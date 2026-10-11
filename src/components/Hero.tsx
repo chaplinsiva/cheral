@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "Full-screen hero slideshow with smooth 6s transitions, minimalist loading progress bar, background overlay, and secondary color #a62a14", deps: [src/data/cheralData.ts, public/images/pdf], state: active, last: "sato@2026-08-13" } */
+/* agent-notes: { ctx: "Full-screen hero slideshow with smooth 6s transitions, displaying original hardcoded brochure images", deps: [src/data/cheralData.ts, public/images], state: active, last: "antigravity@2026-10-11" } */
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { cheralHeroSlides } from "@/data/cheralData";
@@ -61,48 +61,47 @@ export default function Hero({ currentLang, onExploreClick }: HeroProps) {
       ))}
 
       {/* Hero Overlay Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full flex flex-col justify-between min-h-[88vh] lg:min-h-screen">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 pb-12 flex flex-col justify-between min-h-[75vh]">
         
-        {/* Top Pill Badge */}
-        <div className="pt-4">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#FFFFFF]/15 border border-white/25 backdrop-blur-md text-xs font-semibold text-[#F7F3EF] shadow-lg">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#a62a14]" />
-            {currentLang === "ta"
-              ? "சேரல் அறக்கட்டளை - மதசார்பற்ற தொண்டு நிறுவனம்"
-              : "Cheral Trust • Centre for Heritage & Ecological Research"}
+        {/* Top Spacer */}
+        <div />
+
+        {/* Central Headlines & Dynamic Initiative Badge */}
+        <div className="max-w-3xl space-y-6">
+          
+          {/* Active Initiative Category Tag */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs uppercase tracking-widest text-[#E8D9CC] font-semibold animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-[#a62a14] animate-pulse" />
+            <span>{activeSlideData.tag[currentLang]}</span>
           </div>
-        </div>
 
-        {/* Center Main Headline & Narrative */}
-        <div className="max-w-4xl space-y-6 my-auto">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#a62a14] text-white text-xs font-mono font-bold tracking-widest uppercase shadow-md">
-            {typeof activeSlideData.tag === "object"
-              ? activeSlideData.tag[currentLang]
-              : activeSlideData.tag}
-          </span>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.12] drop-shadow-md">
+          {/* Main Title with Serif Editorial Dignity */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.15] drop-shadow-sm transition-all duration-700">
             {activeSlideData.title[currentLang]}
           </h1>
 
-          <p className="text-base sm:text-xl text-[#E8D9CC]/95 font-sans leading-relaxed max-w-2xl drop-shadow-sm">
+          {/* Subtitle / Excerpt */}
+          <p className="text-base sm:text-lg lg:text-xl text-[#F7F3EF]/90 font-sans leading-relaxed line-clamp-3 max-w-2xl font-light">
             {activeSlideData.subtitle[currentLang]}
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-4 flex flex-wrap items-center gap-4">
+          {/* Call to Actions */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <button
               onClick={onExploreClick}
-              className="px-8 py-4 rounded-full bg-[#a62a14] text-white text-xs sm:text-sm font-bold shadow-xl hover:bg-white hover:text-[#4A0E17] transition-all duration-300 active:scale-95 flex items-center gap-2 cursor-pointer"
+              className="px-6 py-3.5 rounded-full bg-[#a62a14] hover:bg-[#4A0E17] text-white font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group active:scale-95 cursor-pointer"
             >
-              <span>{currentLang === "ta" ? "செயல்பாடுகளைக் காண்க" : "Explore What We Do"}</span>
-              <span className="text-lg">↓</span>
+              <span>
+                {currentLang === "ta" ? "எங்களை பற்றி அறிய" : "Explore Initiatives"}
+              </span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
+
             <a
-              href="#objectives"
-              className="px-8 py-4 rounded-full bg-white/10 border border-white/30 text-white text-xs sm:text-sm font-semibold hover:bg-white hover:text-[#222222] backdrop-blur-md transition-all duration-300"
+              href="#about"
+              className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-[#F7F3EF] font-medium text-sm transition-all duration-300 active:scale-95"
             >
-              {currentLang === "ta" ? "நோக்கங்கள்" : "Key Objectives"}
+              {currentLang === "ta" ? "நோக்கங்கள்" : "Our Mission"}
             </a>
           </div>
         </div>

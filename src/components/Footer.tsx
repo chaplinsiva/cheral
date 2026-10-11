@@ -1,6 +1,6 @@
 "use client";
 
-/* agent-notes: { ctx: "English-only Footer with id='contact', English logo, Madurai contact info", deps: [public/logos, src/data/cheralData.ts], state: active, last: "sato@2026-10-06" } */
+/* agent-notes: { ctx: "English-only Footer with contact info and admin link", deps: [public/logos, src/data/cheralData.ts], state: active, last: "antigravity@2026-10-11" } */
 
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { cheralBankDetails } from "@/data/cheralData";
 
 interface FooterProps {
   currentLang?: "en" | "ta";
-  onOpenDonate: () => void;
+  onOpenDonate?: () => void;
 }
 
 export default function Footer({ onOpenDonate }: FooterProps) {
@@ -98,7 +98,8 @@ export default function Footer({ onOpenDonate }: FooterProps) {
             <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
             <Link href="/fund-a-project" className="hover:text-white transition-colors">Fund a Project</Link>
             <Link href="/#objectives" className="hover:text-white transition-colors">Objectives & Values</Link>
-            <button onClick={onOpenDonate} className="text-[#a62a14] hover:underline font-semibold cursor-pointer">
+            <Link href="/admin" className="hover:text-white transition-colors">Admin</Link>
+            <button onClick={() => onOpenDonate?.()} className="text-[#a62a14] hover:underline font-semibold cursor-pointer">
               Donate (Bank / UPI)
             </button>
           </div>
