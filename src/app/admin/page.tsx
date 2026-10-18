@@ -1,11 +1,11 @@
 "use client";
 
-// agent-notes: { ctx: "WordPress-style CRM Admin Panel with Blog CRUD, Gallery Studio, Video Studio, Home Slides, 10 Core Values, and Cloudflare R2 Media Library", deps: ["src/lib/supabase.ts"], state: active, last: "antigravity@2026-10-11" }
+// agent-notes: { ctx: "WordPress-style CRM Admin Panel with Blog CRUD, Gallery Studio, Video Studio, Home Slides, 10 Core Values, and Cloudflare R2 Media Library", deps: ["src/lib/supabase.ts"], state: active, last: "antigravity@2026-10-18" }
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 interface Post {
   id: string;
@@ -267,6 +267,14 @@ export default function AdminPage() {
     e.preventDefault();
     setLoading(true);
     setAuthError(null);
+
+    if (!isSupabaseConfigured) {
+      setAuthError(
+        "Supabase credentials are not configured. Please add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your environment variables (e.g. in Vercel Project Settings) and redeploy the site."
+      );
+      setLoading(false);
+      return;
+    }
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -685,6 +693,17 @@ export default function AdminPage() {
               <h1 className="text-2xl font-serif font-bold text-[#4A0E17]">Admin Portal Login</h1>
               <p className="text-xs text-[#6F6F6F] mt-2">Manage Cheral Blog, Gallery, Hero Slideshow, and Core Values</p>
             </div>
+
+            {!isSupabaseConfigured && (
+              <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs leading-relaxed space-y-1">
+                <div className="font-bold flex items-center gap-1.5 text-amber-900">
+                  <span>⚠️</span> Environment Variables Missing
+                </div>
+                <div>
+                  <code>NEXT_PUBLIC_SUPABASE_URL</code> and <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> must be added to your hosting dashboard (Vercel Project Settings &rarr; Environment Variables) and the site redeployed.
+                </div>
+              </div>
+            )}
 
             {authError && (
               <div className="mb-6 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
